@@ -10,6 +10,7 @@ export default function buildNav(container) {
     node.textContent = capitalize(page.name);
     node.dataset.page = page.name;
     node.addEventListener("click", () => swapPage(page));
+    node.style.marginInline = "4px";
     return node;
   }
 }
