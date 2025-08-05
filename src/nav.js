@@ -1,6 +1,7 @@
+import { pages, swapPage } from "./pageManager";
 import { capitalize } from "./utils";
 
-export default function buildNav(container, pages) {
+export default function buildNav(container) {
   const buttons = pages.map((p) => buildButton(p));
   container.append(...buttons);
 
@@ -11,9 +12,4 @@ export default function buildNav(container, pages) {
     node.addEventListener("click", () => swapPage(page));
     return node;
   }
-}
-
-function swapPage(page) {
-  const node = document.getElementById("content");
-  node.innerHTML = page.html;
 }

@@ -1,6 +1,6 @@
 const context = require.context("./pages", false, /\.html$/);
 
-const pages = [
+export const pages = [
   {
     html: context("./home.html").default,
     name: "home",
@@ -14,4 +14,12 @@ const pages = [
     name: "contact",
   },
 ];
-export default pages;
+
+export function getPage(name) {
+  return pages.find((page) => page.name === name);
+}
+
+export function swapPage(page) {
+  const node = document.getElementById("content");
+  node.innerHTML = page.html;
+}
